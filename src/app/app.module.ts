@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SearchPage } from '../pages/search/search';
 import { TweetModalPage } from '../pages/tweet-modal/tweet-modal';
+import { SingletonProvider } from '../providers/singleton/singleton';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TweetModalPage } from '../pages/tweet-modal/tweet-modal';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SingletonProvider
   ]
 })
 export class AppModule {}

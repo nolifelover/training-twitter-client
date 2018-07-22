@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { SingletonProvider } from '../../providers/singleton/singleton';
 
 /**
  * Generated class for the TweetModalPage page.
@@ -17,7 +18,7 @@ import { HttpClient } from '@angular/common/http';
 export class TweetModalPage {
   message;
   apiEndpoint = "http://localhost:3000/api/tweets"
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient, public viewCtrl: ViewController, private singletonProvider: SingletonProvider) {
   }
 
   ionViewDidLoad() {
@@ -31,6 +32,7 @@ export class TweetModalPage {
     }
     this.http.post(this.apiEndpoint,body).subscribe((result:any)=>{
       console.log(result);
+      this.singletonProvider.userTweet.next(new Date())
       this.viewCtrl.dismiss()
     })
   }
