@@ -14,5 +14,13 @@
 
 
 <ion-content padding>
-
+  <ion-searchbar (ionInput)="searchTweets($event)"></ion-searchbar>
+  <ion-card *ngFor="let tweet of tweets">
+    <ion-card-header>
+      {{tweet.name}}
+    </ion-card-header>
+    <ion-card-content>
+      {{tweet.message}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

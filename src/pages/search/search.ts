@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '../../../node_modules/@angular/common/http';
 
 /**
  * Generated class for the SearchPage page.
@@ -14,12 +15,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  apiEndpoint = "http://localhost:3000/api/search"
+  tweets = []
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
+  }
+
+  ngOnInit(){
+    
+  }
+
+  searchTweets(q){
+    this.http.get(this.apiEndpoint).subscribe((result:any)=>{
+      console.log(result);
+      if(result.status == 200){
+        this.tweets = result.datas
+      }
+    })
   }
 
 }
