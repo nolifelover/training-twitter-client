@@ -28,13 +28,14 @@ export class SearchPage {
     
   }
 
-  searchTweets(q){
-    this.http.get(this.apiEndpoint).subscribe((result:any)=>{
+  searchTweets(event:any){
+    console.log(event.target.value);
+    /*this.http.get(this.apiEndpoint).subscribe((result:any)=>{
       console.log(result);
       if(result.status == 200){
         this.tweets = result.datas
       }
-    })
+    })*/
   }
 
 }
