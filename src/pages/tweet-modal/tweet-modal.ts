@@ -35,4 +35,8 @@ export class TweetModalPage {
     })
   }
 
+  dismiss(){
+    this.viewCtrl.dismiss()
+  }
+
 }
