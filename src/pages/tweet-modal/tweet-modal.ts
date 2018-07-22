@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the TweetModalPage page.
@@ -15,11 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TweetModalPage {
   message;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  apiEndpoint = "http://localhost:3000/api/tweets"
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient, public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TweetModalPage');
+  }
+
+  createTweet(message){
+    var body = {
+      name: "@nolifelover",
+      message: message
+    }
+    this.http.post(this.apiEndpoint,body).subscribe((result:any)=>{
+      console.log(result);
+      this.viewCtrl.dismiss()
+    })
   }
 
 }

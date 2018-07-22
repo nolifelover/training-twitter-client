@@ -12,6 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SearchPage } from '../pages/search/search';
+import { TweetModalPage } from '../pages/tweet-modal/tweet-modal';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchPage } from '../pages/search/search';
     ContactPage,
     HomePage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    TweetModalPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { SearchPage } from '../pages/search/search';
     ContactPage,
     HomePage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    TweetModalPage
   ],
   providers: [
     StatusBar,
