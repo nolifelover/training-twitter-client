@@ -30,12 +30,15 @@ export class SearchPage {
 
   searchTweets(event:any){
     console.log(event.target.value);
-    /*this.http.get(this.apiEndpoint).subscribe((result:any)=>{
+    let searchText = event.target.value
+    this.http.get(this.apiEndpoint,{params:{q: searchText}}).subscribe((result:any)=>{
       console.log(result);
       if(result.status == 200){
         this.tweets = result.datas
       }
-    })*/
+    },(err)=>{
+      console.log("error")
+    })
   }
 
 }
