@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HttpClient } from '../../../node_modules/@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'page-home',
@@ -17,11 +17,14 @@ export class HomePage {
     this.getTweets();
   }
 
-  getTweets(){
+  getTweets(event=null){
     this.http.get(this.apiEndpoint).subscribe((result:any)=>{
       console.log(result);
       if(result.status == 200){
         this.tweets = result.datas
+        if(event){
+          event.complete();
+        }
       }
     })
   }
