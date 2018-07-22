@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tweet-modal.html',
 })
 export class TweetModalPage {
-
+  message;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
